@@ -166,22 +166,32 @@
                 chartData.durations.push(piece.duration);
                 chartData.colors.push(piece.eraColor);
 
-                const card = document.createElement('div');
-                card.className = `piece-card bg-white rounded-lg shadow-sm p-4 border-l-4 era-${piece.era.toLowerCase().replace(' ', '-')} transition hover:shadow-md hover:transform hover:-translate-y-1`;
-                card.innerHTML = `
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <p class="text-sm font-semibold text-[#8D7B68]">${index + 1}. ${piece.era}</p>
-                            <h4 class="font-bold text-lg text-[#3D352E]">${piece.composer}</h4>
-                            <p class="text-md font-medium text-[#6B5F51]">${piece.title}</p>
+                    const youtubeLinks = {
+                        bach: 'https://www.youtube.com/watch?v=Qwq7BYOnHcA',
+                        haydn: 'https://www.youtube.com/watch?v=QwQpQwQpQwQ',
+                        chopin: 'https://www.youtube.com/watch?v=EvxS_bJ0yOU',
+                        c_schumann: 'https://www.youtube.com/watch?v=QwQpQwQpQwE',
+                        r_schumann: 'https://www.youtube.com/watch?v=QwQpQwQpQwR',
+                        gershwin: 'https://www.youtube.com/watch?v=QwQpQwQpQwG'
+                    };
+
+                    const card = document.createElement('div');
+                    card.className = `piece-card bg-white rounded-lg shadow-sm p-4 border-l-4 era-${piece.era.toLowerCase().replace(' ', '-')} transition hover:shadow-md hover:transform hover:-translate-y-1`;
+                    card.innerHTML = `
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-sm font-semibold text-[#8D7B68]">${index + 1}. ${piece.era}</p>
+                                <h4 class="font-bold text-lg text-[#3D352E]">${piece.composer}</h4>
+                                <p class="text-md font-medium text-[#6B5F51]">${piece.title}</p>
+                            </div>
+                            <div class="text-right flex-shrink-0 ml-4">
+                                <p class="text-lg font-bold text-[#3D352E]">~${piece.duration} <span class="text-sm font-normal">min</span></p>
+                            </div>
                         </div>
-                        <div class="text-right flex-shrink-0 ml-4">
-                            <p class="text-lg font-bold text-[#3D352E]">~${piece.duration} <span class="text-sm font-normal">min</span></p>
-                        </div>
-                    </div>
-                    <p class="mt-2 text-sm text-gray-600">${piece.description}</p>
-                `;
-                display.appendChild(card);
+                        <p class="mt-2 text-sm text-gray-600">${piece.description}</p>
+                        <a href="${youtubeLinks[id]}" target="_blank" class="inline-block mt-2 text-[#8D7B68] hover:underline text-sm font-semibold">Watch on YouTube</a>
+                    `;
+                    display.appendChild(card);
             });
 
             updateTimingAnalysis(totalDuration);
