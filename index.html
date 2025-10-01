@@ -184,12 +184,14 @@
                                 <h4 class="font-bold text-lg text-[#3D352E]">${piece.composer}</h4>
                                 <p class="text-md font-medium text-[#6B5F51]">${piece.title}</p>
                             </div>
-                            <div class="text-right flex-shrink-0 ml-4">
-                                <p class="text-lg font-bold text-[#3D352E]">~${piece.duration} <span class="text-sm font-normal">min</span></p>
-                            </div>
+                        <div class="text-right flex-shrink-0 ml-4 flex items-center space-x-2">
+                            <p class="text-lg font-bold text-[#3D352E]">~${piece.duration} <span class="text-sm font-normal">min</span></p>
+                            <a href="${youtubeLinks[id]}" target="_blank" class="text-[#8D7B68] hover:underline" aria-label="Watch on YouTube" title="Watch on YouTube">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-youtube-icon lucide-youtube"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+                            </a>
                         </div>
-                        <p class="mt-2 text-sm text-gray-600">${piece.description}</p>
-                        <a href="${youtubeLinks[id]}" target="_blank" class="inline-block mt-2 text-[#8D7B68] hover:underline text-sm font-semibold">Watch on YouTube</a>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">${piece.description}</p>
                     `;
                     display.appendChild(card);
             });
